@@ -1,14 +1,5 @@
 package net.insomniakitten.cake;
 
-/*
- * This file was created at 21:39 on 13 Jul 2017 by InsomniaKitten
- *
- * It is distributed as part of the PersistentCake mod.
- * Source code is visible at: https://github.com/InsomniaKitten/PersistentCake
- *
- * Copyright (c) InsomniaKitten 2017. All Rights Reserved.
- */
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCake;
 import net.minecraft.block.SoundType;
