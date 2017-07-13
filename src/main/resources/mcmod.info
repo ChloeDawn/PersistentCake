@@ -1,0 +1,16 @@
+[
+  {
+    "modid": "persistentcake",
+    "name": "Persistent Cake",
+    "description": "Simple mod that drops uneaten cakes as an item when broken.",
+    "version": "${build_version}",
+    "mcversion": "${mcf_version}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": ["InsomniaKitten"],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
