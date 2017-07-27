@@ -50,7 +50,7 @@ public class PersistentCake {
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void onNeighborNotify(BlockEvent.NeighborNotifyEvent event) {
-        if (!event.getNotifiedSides().contains(EnumFacing.UP)) return;
+        if (event.getWorld().isRemote || !event.getNotifiedSides().contains(EnumFacing.UP)) return;
         World world = event.getWorld();
         BlockPos pos = event.getPos().up();
         IBlockState state = world.getBlockState(pos);
