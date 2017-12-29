@@ -13,9 +13,9 @@ import net.minecraft.world.World;
 import javax.annotation.Nonnull;
 import java.util.Random;
 
-public class BlockPersistentCake extends BlockCake {
+public final class BlockPersistentCake extends BlockCake {
 
-    public BlockPersistentCake() {
+    protected BlockPersistentCake() {
         setRegistryName("minecraft:cake");
         setSoundType(SoundType.CLOTH);
         setHardness(0.5f);
@@ -23,6 +23,7 @@ public class BlockPersistentCake extends BlockCake {
     }
 
     @Override
+    @Deprecated
     public Material getMaterial(IBlockState state) {
         return Material.CAKE;
     }
@@ -39,13 +40,13 @@ public class BlockPersistentCake extends BlockCake {
         return 1;
     }
 
-    private boolean canBlockStay(World world, BlockPos pos) {
-        return world.getBlockState(pos.down()).getMaterial().isSolid();
-    }
-
     @Override @Nonnull
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return Items.CAKE;
+    }
+
+    private boolean canBlockStay(World world, BlockPos pos) {
+        return world.getBlockState(pos.down()).getMaterial().isSolid();
     }
 
 }
