@@ -14,15 +14,14 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod(modid = PersistentCake.MOD_ID, name = PersistentCake.MOD_NAME, version = PersistentCake.MOD_VERSION)
-@Mod.EventBusSubscriber(modid = PersistentCake.MOD_ID)
-public class PersistentCake {
+@Mod(modid = PersistentCake.ID, name = PersistentCake.NAME, version = PersistentCake.VERSION)
+@Mod.EventBusSubscriber(modid = PersistentCake.ID)
+public final class PersistentCake {
 
-    public static final String MOD_ID = "persistentcake";
-    public static final String MOD_NAME = "Persistent Cake";
-    public static final String MOD_VERSION = "%VERSION%";
+    public static final String ID = "persistentcake";
+    public static final String NAME = "Persistent Cake";
+    public static final String VERSION = "%VERSION%";
 
-    @SuppressWarnings("ConstantConditions")
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void onBlockBreak(BlockEvent.BreakEvent event) {
         if (event.getWorld().isRemote) return;
