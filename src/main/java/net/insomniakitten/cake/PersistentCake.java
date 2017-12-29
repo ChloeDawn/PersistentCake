@@ -14,18 +14,13 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod(   modid = PersistentCake.MOD_ID,
-        name = PersistentCake.MOD_NAME,
-        version = PersistentCake.MOD_VERSION,
-        acceptedMinecraftVersions = PersistentCake.MC_VERSION)
-
-@Mod.EventBusSubscriber
+@Mod(modid = PersistentCake.MOD_ID, name = PersistentCake.MOD_NAME, version = PersistentCake.MOD_VERSION)
+@Mod.EventBusSubscriber(modid = PersistentCake.MOD_ID)
 public class PersistentCake {
 
     public static final String MOD_ID = "persistentcake";
     public static final String MOD_NAME = "Persistent Cake";
-    public static final String MOD_VERSION = "%mod_version%";
-    public static final String MC_VERSION = "[%mc_version%,)";
+    public static final String MOD_VERSION = "%VERSION%";
 
     @SuppressWarnings("ConstantConditions")
     @SubscribeEvent(priority = EventPriority.HIGHEST)
