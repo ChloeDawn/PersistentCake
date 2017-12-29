@@ -1,8 +1,6 @@
 # Gradle
-!gradle-wrapper.jar
 .gradle/
 build/
-compiled/
 
 # IntelliJ
 *.jar
@@ -10,6 +8,3 @@ compiled/
 .idea/
 out/
 run/
-
-# Assets
-docs/
