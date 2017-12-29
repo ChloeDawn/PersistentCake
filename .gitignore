@@ -3,7 +3,6 @@
 build/
 
 # IntelliJ
-*.jar
 *.iml
 .idea/
 out/
