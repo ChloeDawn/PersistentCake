@@ -22,7 +22,7 @@ public final class PersistentCake {
     public static final String VERSION = "%VERSION%";
     public static final String DEPENDENCIES = "after:harvestcraft";
 
-    protected static final Logger LOGGER = LogManager.getLogger(NAME);
+    protected static final Logger LOGGER = LogManager.getLogger(ID);
 
     @SubscribeEvent
     public static void onBlockRegistry(RegistryEvent.Register<Block> event) {
