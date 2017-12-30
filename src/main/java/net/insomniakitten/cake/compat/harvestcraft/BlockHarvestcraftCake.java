@@ -45,7 +45,7 @@ public final class BlockHarvestcraftCake extends BlockPersistentCake {
             Item item = ForgeRegistries.ITEMS.getValue(name);
             cakeItem = item != null ? item : Items.AIR;
         }
-        return cakeItem;
+        return state == getDefaultState() ? cakeItem : Items.AIR;
     }
 
     private boolean eatCake(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
