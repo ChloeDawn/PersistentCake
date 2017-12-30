@@ -4,6 +4,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockCake;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -21,12 +23,18 @@ public class PersistentCakeBlock extends BlockCake {
 
     private final Block delegate;
 
+    private PropertyInteger bitesProperty;
+
     protected PersistentCakeBlock(Block delegate) {
         this.delegate = delegate;
     }
 
     protected PersistentCakeBlock() {
         this(Blocks.CAKE);
+    }
+
+    protected Item getCakeItem(IBlockState state, Random rand, int fortune) {
+        return Items.CAKE;
     }
 
     @Override
@@ -75,7 +83,17 @@ public class PersistentCakeBlock extends BlockCake {
 
     @Override @Nonnull
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return state.getValue(BITES) == 0 ? Items.CAKE : Items.AIR;
+        if (bitesProperty == null) {
+            for (IProperty<?> property : state.getProperties().keySet()) {
+                if (property instanceof PropertyInteger && property.getName().equals("bites")) {
+                    bitesProperty = (PropertyInteger) property;
+                }
+            }
+        }
+        if (bitesProperty != null && state.getValue(bitesProperty) == 0) {
+            return getCakeItem(state, rand, fortune);
+        }
+        return Items.AIR;
     }
 
     private boolean canBlockStay(World world, BlockPos pos) {

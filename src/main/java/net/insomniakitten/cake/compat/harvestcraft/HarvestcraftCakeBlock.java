@@ -31,6 +31,16 @@ public final class HarvestcraftCakeBlock extends PersistentCakeBlock {
     }
 
     @Override
+    protected Item getCakeItem(IBlockState state, Random rand, int fortune) {
+        if (cakeItem == null) {
+            ResourceLocation name = new ResourceLocation("harvestcraft", itemName);
+            Item item = ForgeRegistries.ITEMS.getValue(name);
+            cakeItem = item != null ? item : Items.AIR;
+        }
+        return cakeItem;
+    }
+
+    @Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
         if (!world.isRemote) {
             return eatCake(world, pos, state, player);
@@ -38,16 +48,6 @@ public final class HarvestcraftCakeBlock extends PersistentCakeBlock {
             ItemStack held = player.getHeldItem(hand);
             return eatCake(world, pos, state, player) || held.isEmpty();
         }
-    }
-
-    @Override
-    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        if (cakeItem == null) {
-            ResourceLocation name = new ResourceLocation("harvestcraft", itemName);
-            Item item = ForgeRegistries.ITEMS.getValue(name);
-            cakeItem = item != null ? item : Items.AIR;
-        }
-        return state == getDefaultState() ? cakeItem : Items.AIR;
     }
 
     private boolean eatCake(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
