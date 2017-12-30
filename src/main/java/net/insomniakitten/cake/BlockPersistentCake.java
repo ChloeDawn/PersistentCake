@@ -41,7 +41,7 @@ public class BlockPersistentCake extends BlockCake {
 
     @Override @Nonnull
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return Items.CAKE;
+        return state.getValue(BITES) == 0 ? Items.CAKE : Items.AIR;
     }
 
     private boolean canBlockStay(World world, BlockPos pos) {
