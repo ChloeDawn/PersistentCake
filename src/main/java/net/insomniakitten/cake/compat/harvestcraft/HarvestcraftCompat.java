@@ -1,6 +1,7 @@
 package net.insomniakitten.cake.compat.harvestcraft;
 
 import net.insomniakitten.cake.PersistentCake;
+import net.insomniakitten.cake.PersistentCakeConfig;
 import net.insomniakitten.cake.util.RegistryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
@@ -17,6 +18,7 @@ public final class HarvestcraftCompat {
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onBlockRegistry(RegistryEvent.Register<Block> event) {
+        if (!PersistentCakeConfig.harvestcraft) return;
         registerCake(event, "carrotcake", "carrotcakeitem", 4);
         registerCake(event, "cheesecake", "cheesecakeitem", 5);
         registerCake(event, "cherrycheesecake", "cherrycheesecakeitem", 6);
