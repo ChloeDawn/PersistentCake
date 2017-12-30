@@ -7,6 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
@@ -19,7 +20,7 @@ public final class HarvestcraftCompat {
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onBlockRegistry(RegistryEvent.Register<Block> event) {
-        if (!PersistentCakeConfig.harvestcraft) return;
+        if (!PersistentCakeConfig.harvestcraft || !Loader.isModLoaded("harvestcraft")) return;
         registerCake(event, "carrotcake", "carrotcakeitem", 4);
         registerCake(event, "cheesecake", "cheesecakeitem", 5);
         registerCake(event, "cherrycheesecake", "cherrycheesecakeitem", 6);
