@@ -1,6 +1,6 @@
 package net.insomniakitten.cake.compat.harvestcraft;
 
-import net.insomniakitten.cake.BlockPersistentCake;
+import net.insomniakitten.cake.PersistentCakeBlock;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -16,14 +16,14 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 import java.util.Random;
 
-public final class BlockHarvestcraftCake extends BlockPersistentCake {
+public final class HarvestcraftCakeBlock extends PersistentCakeBlock {
 
     private final int maxBites;
     private final String itemName;
 
     private Item cakeItem = null;
 
-    protected BlockHarvestcraftCake(String item, int maxBites) {
+    protected HarvestcraftCakeBlock(String item, int maxBites) {
         this.maxBites = Math.min(maxBites, 6);
         this.itemName = item;
     }
