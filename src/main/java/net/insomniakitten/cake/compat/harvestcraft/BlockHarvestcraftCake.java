@@ -1,5 +1,6 @@
-package net.insomniakitten.cake;
+package net.insomniakitten.cake.compat.harvestcraft;
 
+import net.insomniakitten.cake.BlockPersistentCake;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -17,7 +18,6 @@ public final class BlockHarvestcraftCake extends BlockPersistentCake {
     private final int maxBites;
 
     protected BlockHarvestcraftCake(int maxBites) {
-        super();
         this.maxBites = Math.min(maxBites, 6);
     }
 
