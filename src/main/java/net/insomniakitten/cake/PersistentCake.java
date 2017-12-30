@@ -7,6 +7,8 @@ import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @Mod(modid = PersistentCake.ID,
      name = PersistentCake.NAME,
@@ -19,6 +21,8 @@ public final class PersistentCake {
     public static final String NAME = "Persistent Cake";
     public static final String VERSION = "%VERSION%";
     public static final String DEPENDENCIES = "after:harvestcraft";
+
+    protected static final Logger LOGGER = LogManager.getLogger(NAME);
 
     @SubscribeEvent
     public static void onBlockRegistry(RegistryEvent.Register<Block> event) {
