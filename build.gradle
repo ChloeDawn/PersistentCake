@@ -22,12 +22,6 @@ minecraft {
     replace '%VERSION%', modVersion
 }
 
-jar {
-    manifest {
-        attributes 'FMLAT': 'persistentcake_at.cfg'
-    }
-}
-
 processResources {
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info', 'pack.mcmeta'

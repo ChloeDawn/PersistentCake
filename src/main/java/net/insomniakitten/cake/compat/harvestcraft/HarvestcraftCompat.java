@@ -4,7 +4,8 @@ import net.insomniakitten.cake.PersistentCake;
 import net.insomniakitten.cake.PersistentCakeConfig;
 import net.insomniakitten.cake.util.RegistryHelper;
 import net.minecraft.block.Block;
-import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.ModContainer;
@@ -32,10 +33,10 @@ public final class HarvestcraftCompat {
     }
 
     private static void registerCake(RegistryEvent.Register<Block> event, String blockName, String itemName, int maxBites) {
+        Block original = event.getRegistry().getValue(new ResourceLocation("harvestcraft", blockName));
         ModContainer container = RegistryHelper.findContainerFor("harvestcraft");
-        CreativeTabs tab = RegistryHelper.findCreativeTabFor("harvestcraft");
-        if (container != null && tab != null) {
-            Block block = new HarvestcraftCakeBlock(itemName, maxBites).setUnlocalizedName(blockName).setCreativeTab(tab);
+        if (container != null && original != null && original != Blocks.AIR) {
+            Block block = new HarvestcraftCakeBlock(original, itemName, maxBites);
             event.getRegistry().register(RegistryHelper.withRegistryName(block, container, blockName));
         }
     }
