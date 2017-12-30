@@ -12,9 +12,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
+import org.apache.logging.log4j.Logger;
 
 import javax.annotation.Nonnull;
 import java.util.Random;
@@ -26,7 +28,22 @@ public class PersistentCakeBlock extends BlockCake {
     private PropertyInteger bitesProperty;
 
     protected PersistentCakeBlock(Block delegate) {
+        ResourceLocation id = delegate.getRegistryName();
+        String name = id != null ? id.toString() : "null";
+        Logger log = PersistentCake.LOGGER;
         this.delegate = delegate;
+        for (IProperty<?> property : delegate.getBlockState().getProperties()) {
+            if (property instanceof PropertyInteger) {
+                if ("bites".equals(property.getName())) {
+                    log.debug("Successfully found \"bites\" property for cake <{}>", name);
+                    bitesProperty = (PropertyInteger) property;
+                }
+            }
+        }
+        if (bitesProperty == null) {
+            log.warn("Failed to find \"bites\" property for cake <{}>", name);
+            log.warn("This cake will not to drop an item when uneaten");
+        }
     }
 
     protected PersistentCakeBlock() {
@@ -83,13 +100,6 @@ public class PersistentCakeBlock extends BlockCake {
 
     @Override @Nonnull
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        if (bitesProperty == null) {
-            for (IProperty<?> property : state.getProperties().keySet()) {
-                if (property instanceof PropertyInteger && property.getName().equals("bites")) {
-                    bitesProperty = (PropertyInteger) property;
-                }
-            }
-        }
         if (bitesProperty != null && state.getValue(bitesProperty) == 0) {
             return getCakeItem(state, rand, fortune);
         }
