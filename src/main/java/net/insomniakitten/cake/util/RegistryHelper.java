@@ -1,6 +1,5 @@
 package net.insomniakitten.cake.util;
 
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.ModContainer;
@@ -30,16 +29,6 @@ public final class RegistryHelper {
         for (ModContainer container : Loader.instance().getActiveModList()) {
             if (container != null && modid.equals(container.getModId())) {
                 return container;
-            }
-        }
-        return null;
-    }
-
-    @Nullable
-    public static CreativeTabs findCreativeTabFor(String label) {
-        for (CreativeTabs tab : CreativeTabs.CREATIVE_TAB_ARRAY) {
-            if (tab != null && label.equals(tab.tabLabel)) {
-                return tab;
             }
         }
         return null;
