@@ -53,16 +53,16 @@ public final class HarvestcraftCompat {
         ModContainer harvestcraft = RegistryHelper.findContainerFor("harvestcraft");
         if (harvestcraft != null) {
             event.getRegistry().registerAll(
-                    RegistryHelper.withRegistryName(new ItemBlock(CARROTCAKE), harvestcraft, "carrotcake"),
-                    RegistryHelper.withRegistryName(new ItemBlock(CHEESECAKE), harvestcraft, "cheesecake"),
-                    RegistryHelper.withRegistryName(new ItemBlock(CHERRYCHEESECAKE), harvestcraft, "cherrycheesecake"),
-                    RegistryHelper.withRegistryName(new ItemBlock(CHOCOLATESPRINKLESCAKE), harvestcraft, "chocolatesprinklecake"),
-                    RegistryHelper.withRegistryName(new ItemBlock(HOLIDAYCAKE), harvestcraft, "holidaycake"),
-                    RegistryHelper.withRegistryName(new ItemBlock(LAMINGTONCAKE), harvestcraft, "lamingtoncake"),
-                    RegistryHelper.withRegistryName(new ItemBlock(PAVLOVACAKE), harvestcraft, "pavlovacake"),
-                    RegistryHelper.withRegistryName(new ItemBlock(PINEAPPLEUPSIDEDOWNCAKE), harvestcraft, "pineappleupsidedowncake"),
-                    RegistryHelper.withRegistryName(new ItemBlock(PUMPKINCHEESECAKE), harvestcraft, "pumpkincheesecake"),
-                    RegistryHelper.withRegistryName(new ItemBlock(REDVELVETCAKE), harvestcraft, "redvelvetcake")
+                    RegistryHelper.withRegistryName(new ItemBlock(CARROTCAKE), harvestcraft, "carrotcakeitem"),
+                    RegistryHelper.withRegistryName(new ItemBlock(CHEESECAKE), harvestcraft, "cheesecakeitem"),
+                    RegistryHelper.withRegistryName(new ItemBlock(CHERRYCHEESECAKE), harvestcraft, "cherrycheesecakeitem"),
+                    RegistryHelper.withRegistryName(new ItemBlock(CHOCOLATESPRINKLESCAKE), harvestcraft, "chocolatesprinklecakeitem"),
+                    RegistryHelper.withRegistryName(new ItemBlock(HOLIDAYCAKE), harvestcraft, "holidaycakeitem"),
+                    RegistryHelper.withRegistryName(new ItemBlock(LAMINGTONCAKE), harvestcraft, "lamingtoncakeitem"),
+                    RegistryHelper.withRegistryName(new ItemBlock(PAVLOVACAKE), harvestcraft, "pavlovacakeitem"),
+                    RegistryHelper.withRegistryName(new ItemBlock(PINEAPPLEUPSIDEDOWNCAKE), harvestcraft, "pineappleupsidedowncakeitem"),
+                    RegistryHelper.withRegistryName(new ItemBlock(PUMPKINCHEESECAKE), harvestcraft, "pumpkincheesecakeitem"),
+                    RegistryHelper.withRegistryName(new ItemBlock(REDVELVETCAKE), harvestcraft, "redvelvetcakeitem")
             );
         }
     }
