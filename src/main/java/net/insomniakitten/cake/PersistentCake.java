@@ -22,6 +22,7 @@ public final class PersistentCake {
 
     @SubscribeEvent
     public static void onBlockRegistry(RegistryEvent.Register<Block> event) {
+        if (!PersistentCakeConfig.vanilla) return;
         ModContainer minecraft = Loader.instance().getMinecraftModContainer();
         event.getRegistry().register(RegistryHelper.withRegistryName(new PersistentCakeBlock(), minecraft, "cake"));
     }
