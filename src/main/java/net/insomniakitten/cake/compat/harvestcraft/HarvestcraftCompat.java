@@ -33,7 +33,7 @@ public final class HarvestcraftCompat {
         ModContainer container = RegistryHelper.findContainerFor("harvestcraft");
         CreativeTabs tab = RegistryHelper.findCreativeTabFor("harvestcraft");
         if (container != null && tab != null) {
-            Block block = new BlockHarvestcraftCake(itemName, maxBites).setUnlocalizedName(blockName).setCreativeTab(tab);
+            Block block = new HarvestcraftCakeBlock(itemName, maxBites).setUnlocalizedName(blockName).setCreativeTab(tab);
             event.getRegistry().register(RegistryHelper.withRegistryName(block, container, blockName));
         }
     }

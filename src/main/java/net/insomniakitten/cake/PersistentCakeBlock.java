@@ -13,9 +13,9 @@ import net.minecraft.world.World;
 import javax.annotation.Nonnull;
 import java.util.Random;
 
-public class BlockPersistentCake extends BlockCake {
+public class PersistentCakeBlock extends BlockCake {
 
-    protected BlockPersistentCake() {
+    protected PersistentCakeBlock() {
         setSoundType(SoundType.CLOTH);
         setHardness(0.5f);
         setResistance(2.5f);
