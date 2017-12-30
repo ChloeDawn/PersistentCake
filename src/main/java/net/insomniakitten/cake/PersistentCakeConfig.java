@@ -6,14 +6,18 @@ import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Config(modid = PersistentCake.ID, name = PersistentCake.NAME)
+@Config(modid = PersistentCake.ID, name = PersistentCake.ID)
 @Mod.EventBusSubscriber(modid = PersistentCake.ID)
 public final class PersistentCakeConfig {
 
     @Config.Comment("Should Harvestcraft compatibility be enabled?")
+    @Config.LangKey("config." + PersistentCake.ID + ".harvestcraft")
+    @Config.RequiresMcRestart
     public static boolean harvestcraft = true;
 
     @Config.Comment("Should vanilla compatibility be enabled?")
+    @Config.LangKey("config." + PersistentCake.ID + ".vanilla")
+    @Config.RequiresMcRestart
     public static boolean vanilla = true;
 
     private PersistentCakeConfig() {}
