@@ -1,0 +1,4 @@
+config.persistentcake.harvestcraft=潘马斯农场
+config.persistentcake.harvestcraft.tooltip=是否开启对潘马斯农场的兼容？
+config.persistentcake.vanilla=原版
+config.persistentcake.vanilla.tooltip=是否开启对原版的兼容？
