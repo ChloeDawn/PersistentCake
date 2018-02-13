@@ -20,7 +20,7 @@ public final class PersistentCake {
     public static final String ID = "persistentcake";
     public static final String NAME = "Persistent Cake";
     public static final String VERSION = "%VERSION%";
-    public static final String DEPENDENCIES = "after:harvestcraft";
+    public static final String DEPENDENCIES = "after:applecore;after:harvestcraft";
 
     protected static final Logger LOGGER = LogManager.getLogger(ID);
 
