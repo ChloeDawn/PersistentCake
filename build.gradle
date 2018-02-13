@@ -22,6 +22,14 @@ minecraft {
     replace '%VERSION%', modVersion
 }
 
+repositories {
+    maven { url 'http://www.ryanliptak.com/maven' }
+}
+
+dependencies {
+    deobfCompile "applecore:AppleCore:$applecoreVersion:api"
+}
+
 processResources {
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info', 'pack.mcmeta'

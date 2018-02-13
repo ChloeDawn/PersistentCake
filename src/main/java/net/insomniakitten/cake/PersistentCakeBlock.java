@@ -12,16 +12,21 @@ import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.Optional;
 import org.apache.logging.log4j.Logger;
+import squeek.applecore.api.food.FoodValues;
+import squeek.applecore.api.food.IEdibleBlock;
 
 import javax.annotation.Nonnull;
 import java.util.Random;
 
-public class PersistentCakeBlock extends BlockCake {
+@Optional.Interface(iface = "squeek.applecore.api.food.IEdibleBlock", modid = "applecore")
+public class PersistentCakeBlock extends BlockCake implements IEdibleBlock {
 
     private final Block delegate;
 
@@ -108,6 +113,18 @@ public class PersistentCakeBlock extends BlockCake {
 
     private boolean canBlockStay(World world, BlockPos pos) {
         return world.getBlockState(pos.down()).getMaterial().isSolid();
+    }
+
+    @Override
+    @Optional.Method(modid = "applecore")
+    public void setEdibleAtMaxHunger(boolean value) {
+        ((IEdibleBlock) delegate).setEdibleAtMaxHunger(value);
+    }
+
+    @Override
+    @Optional.Method(modid = "applecore")
+    public FoodValues getFoodValues(@Nonnull ItemStack stack) {
+        return ((IEdibleBlock) delegate).getFoodValues(stack);
     }
 
 }
