@@ -1,4 +1,6 @@
 {
-  "pack_format": 4,
-  "description": ""
+  "pack": {
+    "pack_format": 4,
+    "description": ""
+  }
 }
