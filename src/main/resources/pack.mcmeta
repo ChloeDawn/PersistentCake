@@ -1,6 +1,4 @@
 {
-    "pack": {
-        "pack_format": 3,
-        "description": "persistentcake-${version}"
-    }
+  "pack_format": 4,
+  "description": ""
 }

@@ -1,0 +1,10 @@
+{
+  "id": "persistentcake",
+  "name": "Persistent Cake",
+  "version": "@version@",
+  "authors": [ "InsomniaKitten" ],
+  "license": "Apache-2.0",
+  "description": "Allows cakes to be moved by pistons, and picked up as items when uneaten.",
+  "mixins": { "common": "mixins.persistentcake.json" },
+  "dependencies": { "fabric": "" }
+}

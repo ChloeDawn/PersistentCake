@@ -1,42 +1,33 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
 buildscript {
-    repositories {
-        jcenter()
-        maven { url 'https://files.minecraftforge.net/maven' }
-    }
-    dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
-    }
+  repositories {
+    jcenter()
+    maven { url = 'http://maven.fabricmc.net' }
+  }
+  dependencies {
+    classpath 'net.fabricmc:fabric-loom:0.1.0-SNAPSHOT'
+  }
 }
 
-apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'fabric-loom'
 
-version = "1.12-${modVersion}"
-group = "net.insomniakitten.cake"
-archivesBaseName = "persistentcake"
+archivesBaseName = 'PersistentCake'
+group = 'io.github.insomniakitten'
+version = '0.1.0-fabric'
 sourceCompatibility = 1.8
 
 minecraft {
-    version = mcfVersion
-    mappings = mcpMappings
-    runDir = 'run'
-    replace '%VERSION%', modVersion
-}
-
-repositories {
-    maven { url 'http://www.ryanliptak.com/maven' }
+  refmapName = 'mixins.persistentcake.refmap.json'
 }
 
 dependencies {
-    deobfCompile "applecore:AppleCore:$applecoreVersion:api"
+  minecraft 'com.mojang:minecraft:18w49a'
+  mappings 'net.fabricmc:yarn:18w49a.11'
+  modCompile 'net.fabricmc:fabric-loader:0.2.0.62'
+  modCompile 'net.fabricmc:fabric:0.1.0.42'
 }
 
 processResources {
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info', 'pack.mcmeta'
-        expand 'version': modVersion
-    }
-
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info', 'pack.mcmeta'
-    }
+  filter ReplaceTokens, tokens: [version: project.version]
 }
