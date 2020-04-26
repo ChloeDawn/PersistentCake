@@ -1,10 +1,28 @@
 {
+  "schemaVersion": 1,
   "id": "persistentcake",
   "name": "Persistent Cake",
-  "version": "@version@",
-  "authors": [ "InsomniaKitten" ],
-  "license": "Apache-2.0",
+  "version": "$version",
   "description": "Allows cakes to be moved by pistons, and picked up as items when uneaten.",
-  "mixins": { "common": "mixins.persistentcake.json" },
-  "dependencies": { "fabric": "" }
+  "license": "Apache-2.0",
+  "icon": "pack.png",
+  "depends": {
+    "fabricloader": ">=0.8.2"
+  },
+  "mixins": [
+    "mixins/persistentcake/mixins.json"
+  ],
+  "authors": [
+    {
+      "name": "Chloe Dawn",
+      "contact": {
+        "homepage": "https://git.io/Jen3g"
+      }
+    }
+  ],
+  "contact": {
+    "homepage": "https://git.io/Jftuq",
+    "sources": "https://git.io/Jftuq",
+    "issues": "https://git.io/Jftut"
+  }
 }

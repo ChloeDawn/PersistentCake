@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 InsomniaKitten
+ * Copyright (C) 2020 Chloe Dawn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.insomniakitten.cake;
+package io.github.chloedawn.persistentcake;
 
-import net.minecraft.block.Block;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.piston.PistonBehavior;
@@ -25,10 +25,12 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(Block.class)
-public final class PersistentCake {
-    @Inject(method = "getPistonBehavior", at = @At("HEAD"), cancellable = true)
-    private void determinePistonBehaviour(final BlockState state, final CallbackInfoReturnable<PistonBehavior> cir) {
-        if (Blocks.CAKE == state.getBlock()) cir.setReturnValue(PistonBehavior.NORMAL);
+@Mixin(AbstractBlock.class)
+abstract class PersistentCake {
+  @Inject(method = "getPistonBehavior", at = @At("HEAD"), cancellable = true)
+  private void persistentCake(final BlockState state, final CallbackInfoReturnable<PistonBehavior> cir) {
+    if (Blocks.CAKE == state.getBlock()) {
+      cir.setReturnValue(PistonBehavior.NORMAL);
     }
+  }
 }
