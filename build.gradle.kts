@@ -5,7 +5,7 @@ plugins {
   id("fabric-loom") version "0.2.7-SNAPSHOT"
 }
 
-group = "io.github.chloedawn"
+group = "dev.sapphic"
 version = "1.0.0"
 
 java {
@@ -22,8 +22,9 @@ dependencies {
   minecraft("com.mojang:minecraft:20w17a")
   mappings("net.fabricmc:yarn:20w17a+build.5:v2")
   modImplementation("net.fabricmc:fabric-loader:0.8.2+build.194")
-  modImplementation("net.fabricmc.fabric-api:fabric-resource-loader-v0:0.1.14+2fd224ca34")
-  include("net.fabricmc.fabric-api:fabric-resource-loader-v0:0.1.14+2fd224ca34")
+  fabricApi(name = "api-base", version = "0.1.3+12a8474c34")
+  fabricApi(name = "loot-tables-v1", version = "0.1.6+2f56dff234")
+  fabricApi(name = "resource-loader-v0", version = "0.1.14+2fd224ca34")
 }
 
 tasks.withType<ProcessResources> {
@@ -43,3 +44,7 @@ tasks.withType<JavaCompile> {
   }
 }
 
+fun DependencyHandlerScope.fabricApi(name: String, version: String) {
+  modImplementation(group = "net.fabricmc.fabric-api", name = "fabric-$name", version = version)
+  include(group = "net.fabricmc.fabric-api", name = "fabric-$name", version = version)
+}

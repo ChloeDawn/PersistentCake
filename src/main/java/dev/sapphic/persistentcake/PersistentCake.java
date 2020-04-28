@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.chloedawn.persistentcake;
+package dev.sapphic.persistentcake;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
