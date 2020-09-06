@@ -2,7 +2,7 @@
 name: Data-pack-related issue
 about: An issue relating to the data pack version of Persistent Cake
 title: ''
-labels: ''
+labels: data-pack
 assignees: ''
 
 ---
